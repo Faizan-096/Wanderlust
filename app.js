@@ -94,9 +94,8 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-    res.redirect("/listings");
+    res.send("WanderLust Homepage Working!");
 });
-
 
 // app.get("/demouser", async (req, res) =>{
 //     let fakeUser = new User({
