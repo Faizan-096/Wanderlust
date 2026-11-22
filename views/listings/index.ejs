@@ -1,112 +1,137 @@
+
 <% layout("/layouts/boilerplate") %>
 
+<div class="listings-page">
 
-    <style>
-      #filters {
-        display: flex;
-        flex-wrap: wrap;
-      }
+    <!-- PAGE INTRO -->
+    <section class="home-intro">
+        <div>
+            <span class="intro-tag">YOUR NEXT ADVENTURE STARTS HERE</span>
+            <h1>Find a place to <span>belong.</span></h1>
+            <p>Discover unique stays and unforgettable places around the world.</p>
+        </div>
+    </section>
 
-      .filter {
-        text-align: center;
-        margin-right: 1.5rem;
-        margin-top: 1.5rem;
-        opacity: 0.7;
-      }
+    <!-- CATEGORY FILTERS -->
+    <div id="filters">
 
-      .filter:hover {
-        opacity: 1;
-        cursor: pointer;
-      }
+        <div class="filter">
+            <i class="fa-solid fa-fire"></i>
+            <p>Trending</p>
+        </div>
 
-      .filter p {
-        font-size: 0.8rem;
-      }
+        <div class="filter">
+            <i class="fa-solid fa-bed"></i>
+            <p>Rooms</p>
+        </div>
 
-    </style>
+        <div class="filter">
+            <i class="fa-solid fa-city"></i>
+            <p>Iconic Cities</p>
+        </div>
 
-    <div id ="filters">
-      <div class="filter">
-       <div><i class="fa-solid fa-fire"></i> </div>
-       <p>Trending</p>
-      </div>
+        <div class="filter">
+            <i class="fa-solid fa-mountain-sun"></i>
+            <p>Mountains</p>
+        </div>
 
-      <div class="filter">
-       <div><i class="fa-solid fa-bed"></i></div>
-       <p>Rooms</p>
-      </div>
+        <div class="filter">
+            <i class="fa-brands fa-fort-awesome"></i>
+            <p>Castles</p>
+        </div>
 
-      <div class="filter">
-       <div><i class="fa-solid fa-city"></i></div>
-       <p>Iconic Cities</p>
-      </div>
+        <div class="filter">
+            <i class="fa-solid fa-person-swimming"></i>
+            <p>Amazing Pools</p>
+        </div>
 
-      <div class="filter">
-       <div><i class="fa-solid fa-mountain-sun"></i> </div>
-       <p>Mountains</p>
-      </div>
-      <div class="filter">
-       <div><i class="fa-brands fa-fort-awesome"></i></div>
-       <p>Castles</p>
-      </div>
-      <div class="filter">
-       <div><i class="fa-solid fa-person-swimming"></i> </div>
-       <p>Amazing Pools</p>
-      </div>
-      <div class="filter">
-       <div><i class="fa-solid fa-tents"></i> </div>
-       <p>Camping</p>
-      </div>
-      <div class="filter">
-       <div><i class="fa-solid fa-tractor"></i> </div>
-       <p>Farms</p>
-      </div>
-      <div class="filter">
-       <div><i class="fa-solid fa-snowflake"></i></div>
-       <p>Arctic</p>
-      </div>
+        <div class="filter">
+            <i class="fa-solid fa-tents"></i>
+            <p>Camping</p>
+        </div>
 
-      <div class="filter">
-       <div><i class="fa-solid fa-sailboat"></i></div>
-       <p>Boat</p>
-      </div>
-      <div class="filter">
-       <div><i class="fa-solid fa-umbrella-beach"></i></div>
-       <p>Beach</p>
-      </div>
+        <div class="filter">
+            <i class="fa-solid fa-tractor"></i>
+            <p>Farms</p>
+        </div>
 
-      <div class="filter">
-       <div><i class="fa-solid fa-person-snowboarding"></i></div>
-       <p>Beach</p>
-      </div>
+        <div class="filter">
+            <i class="fa-solid fa-snowflake"></i>
+            <p>Arctic</p>
+        </div>
 
-      <div class="filter">
-       <div><i class="fa-solid fa-tree"></i></div>
-       <p>Forest</p>
-      </div>
+        <div class="filter">
+            <i class="fa-solid fa-sailboat"></i>
+            <p>Boats</p>
+        </div>
+
+        <div class="filter">
+            <i class="fa-solid fa-umbrella-beach"></i>
+            <p>Beach</p>
+        </div>
+
+        <div class="filter">
+            <i class="fa-solid fa-person-snowboarding"></i>
+            <p>Skiing</p>
+        </div>
+
+        <div class="filter">
+            <i class="fa-solid fa-tree"></i>
+            <p>Forest</p>
+        </div>
 
     </div>
 
+    <!-- LISTINGS HEADING -->
+    <div class="listings-heading">
+        <div>
+            <h2>Explore stays</h2>
+            <p>Handpicked places for your next getaway</p>
+        </div>
+    </div>
 
-    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+    <!-- LISTING CARDS -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 listings-grid">
 
- <% for(let listing of allListings) { %>
-    <a href="/listings/<%= listing._id %>" class="listing-link">
-    <div class="card col listing-card" >
-  <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height: 20rem;" />
-  <div class="card-img-overlay"></div>
-  <div class="card-body">
-    <p class="card-text">
-       <b> <%= listing.title %> </b></br>
-        &#8377;<%= listing.price.toLocaleString("en-IN") %> / night
-    
-    </p>
-  </div>
+        <% for(let listing of allListings) { %>
+
+            <div class="col">
+                <a href="/listings/<%= listing._id %>" class="listing-link">
+
+                    <div class="card listing-card">
+
+                        <div class="listing-image-wrap">
+                            <img
+                                src="<%= listing.image.url %>"
+                                class="card-img-top"
+                                alt="<%= listing.title %>"
+                            >
+                        </div>
+
+                        <div class="card-body">
+
+                            <h3 class="listing-title">
+                                <%= listing.title %>
+                            </h3>
+
+                            <p class="listing-location">
+                                <%= listing.location %>, <%= listing.country %>
+                            </p>
+
+                            <p class="listing-price">
+                                <strong>₹<%= listing.price.toLocaleString("en-IN") %></strong>
+                                <span>/ night</span>
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </a>
+            </div>
+
+        <% } %>
+
+    </div>
+
 </div>
- </a>
-<% } %>
-
-    </div>
-
-   
-

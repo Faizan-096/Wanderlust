@@ -1,105 +1,264 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
+
+/* ==================================
+   WANDERLUST - PREMIUM HOMEPAGE
+================================== */
+
+.listings-page {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 35px 60px;
+    color: #222;
+}
+
+/* INTRO SECTION */
+
+.home-intro {
+    padding: 48px 0 30px;
+}
+
+.intro-tag {
+    color: #fe424d;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.home-intro h1 {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 750;
+    letter-spacing: -2px;
+    margin: 12px 0;
+}
+
+.home-intro h1 span {
+    color: #fe424d;
+}
+
+.home-intro p {
+    color: #777;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* CATEGORY FILTERS */
+
+#filters {
     display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    justify-content: space-between;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 18px 0 24px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e9e9e9;
+    scrollbar-width: none;
 }
 
-.container {
-    flex: 1;
-}
-/* navbar */
-Navbar {
-    height: 5rem;
-    background-color: white;
-}
-.fa-compass {
-   font-size: 2rem;
-   color: #fe424d; 
+#filters::-webkit-scrollbar {
+    display: none;
 }
 
-.nev-link {
-    color: #222222  !important;
-}
-/* footer */
-
-  .f-info-links a {
-   text-decoration: none;
-   color: #222222;
-  }
-.f-info-links a:hover {
-    text-decoration: underline;
-}
-.f-info-links a:hover {
-    text-decoration: underline;
-}
-.f-info-links, .f-info-socials, .f-info-brand {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.f-info-socials i {
-    margin-right: 1rem ;
-    font-size: 1.2rem;
-}
-
-.f-info {
+.filter {
+    flex: 0 0 auto;
+    min-width: 78px;
+    padding: 12px 9px;
     text-align: center;
-    height: 8rem ;
-    background-color: #ebebeb;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: space-evenly;
-
+    color: #717171;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
 }
 
-/* cards */
-.listing-card
- {
-    border: none !important;
-    margin-bottom: 2rem ;
+.filter i {
+    font-size: 22px;
+    margin-bottom: 9px;
+    transition: transform 0.25s ease;
+}
 
- }
+.filter p {
+    font-size: 12px;
+    margin: 0;
+    white-space: nowrap;
+}
 
- .card-img-top {
-    border-radius: 1rem !important;
-    width: 100% !important;
-    object-fit: cover !important;
- }
+.filter:hover {
+    color: #fe424d;
+    background: #fff1f2;
+    transform: translateY(-3px);
+}
 
- .card-body {
-    padding: 0 !important;
+.filter:hover i {
+    transform: scale(1.12);
+}
 
- }
+/* LISTINGS HEADING */
 
- .card-text p {
-    font-weight: 400;
- }
- .listing-link {
-    text-decoration: none;
- }
-
- /* card Effect */
- 
- .card-img-overlay {
-    opacity: 0;
- }
- .card-img-overlay:hover {
-  opacity: 0.2;
-  background-color: white;
- }
-
- /* show page */
- .show-img {
-    height: 30vh;
- }
-
- .btns {
+.listings-heading {
     display: flex;
- }
- .show-card {
-    
- }
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.listings-heading h2 {
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: -0.7px;
+    margin-bottom: 5px;
+}
+
+.listings-heading p {
+    color: #888;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* LISTING GRID */
+
+.listings-grid {
+    --bs-gutter-x: 25px;
+    --bs-gutter-y: 35px;
+}
+
+/* LISTING LINK */
+
+.listing-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+/* PROPERTY CARD */
+
+.listing-card {
+    height: 100%;
+    border: none !important;
+    border-radius: 18px !important;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.035);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.listing-link:hover .listing-card {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.10);
+}
+
+/* IMAGE */
+
+.listing-image-wrap {
+    height: 245px;
+    overflow: hidden;
+    background: #eee;
+}
+
+.listing-card .card-img-top {
+    width: 100%;
+    height: 100% !important;
+    object-fit: cover;
+    border-radius: 0 !important;
+    transition: transform 0.6s ease;
+}
+
+.listing-link:hover .card-img-top {
+    transform: scale(1.06);
+}
+
+/* CARD CONTENT */
+
+.listing-card .card-body {
+    padding: 17px 16px 19px !important;
+}
+
+.listing-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 7px;
+    color: #222;
+}
+
+.listing-location {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 12px;
+}
+
+.listing-price {
+    font-size: 14px;
+    color: #444;
+    margin: 0;
+}
+
+.listing-price strong {
+    font-size: 15px;
+    color: #222;
+}
+
+.listing-price span {
+    color: #777;
+}
+
+/* ENTRANCE ANIMATION */
+
+@keyframes listingFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.listings-grid > .col {
+    animation: listingFadeUp 0.6s ease both;
+}
+
+.listings-grid > .col:nth-child(2) {
+    animation-delay: 0.08s;
+}
+
+.listings-grid > .col:nth-child(3) {
+    animation-delay: 0.16s;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+    .listings-page {
+        padding: 0 17px 40px;
+    }
+
+    .home-intro {
+        padding: 30px 0 20px;
+    }
+
+    .home-intro h1 {
+        letter-spacing: -1px;
+    }
+
+    #filters {
+        justify-content: flex-start;
+        margin-bottom: 22px;
+    }
+
+    .listings-heading h2 {
+        font-size: 22px;
+    }
+
+    .listing-image-wrap {
+        height: 230px;
+    }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    .listings-page *,
+    .listings-page *::before,
+    .listings-page *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}

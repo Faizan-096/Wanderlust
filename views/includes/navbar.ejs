@@ -1,41 +1,300 @@
 <style>
-  .btn-search {
+  .custom-navbar {
+    background-color: #ffffff !important;
+    min-height: 80px;
+    border-bottom: 1px solid #ebebeb;
+    padding: 0.75rem 2rem;
+  }
+
+  /* Brand */
+  .brand-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #222222;
+    font-weight: 700;
+    font-size: 1.35rem;
+    letter-spacing: -0.02em;
+  }
+
+  .brand-wrapper i {
+    font-size: 1.85rem;
+    color: #222222;
+  }
+
+  .brand-wrapper:hover {
+    color: #fe424d;
+  }
+
+  /* Pill Search Bar */
+  .search-pill {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 50px;
+    padding: 6px 8px 6px 24px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.2s ease;
+    max-width: 520px;
+    width: 100%;
+  }
+
+  .search-pill:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.13);
+  }
+
+  .search-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 14px;
+  }
+
+  .search-section-where {
+    flex: 1.6;
+  }
+
+  .search-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #222222;
+    line-height: 1.1;
+    margin-bottom: 2px;
+  }
+
+  .search-input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 0.88rem;
+    color: #222222;
+    width: 100%;
+    padding: 0;
+  }
+
+  .search-input::placeholder {
+    color: #717171;
+  }
+
+  .search-divider {
+    width: 1px;
+    height: 28px;
+    background-color: #dddddd;
+    margin: 0 14px 0 0;
+  }
+
+  .search-field-btn {
+    border: none;
+    background: transparent;
+    color: #717171;
+    font-size: 0.88rem;
+    white-space: nowrap;
+    padding: 0 14px 0 0;
+    cursor: pointer;
+  }
+
+  .search-field-btn:hover {
+    color: #222222;
+  }
+
+  .btn-search-circle {
     background-color: #fe424d;
-    color: white;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+  }
+
+  .btn-search-circle:hover {
+    background-color: #e0343f;
+    color: #ffffff;
+    transform: scale(1.03);
+  }
+
+  /* Right Actions */
+  .host-link {
+    color: #222222 !important;
+    font-weight: 500;
+    font-size: 0.92rem;
+    padding: 0.55rem 0.9rem !important;
     border-radius: 25px;
-    padding: 0 1rem 0 1rem;
+    transition: background-color 0.2s ease;
+  }
+
+  .host-link:hover {
+    background-color: #f7f7f7;
+  }
+
+  .globe-btn {
+    color: #222222;
+    background: transparent;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+  }
+
+  .globe-btn:hover {
+    background-color: #f7f7f7;
+  }
+
+  /* Profile Dropdown Pill */
+  .profile-pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 50px;
+    padding: 5px 8px 5px 14px;
+    color: #222222;
+    transition: box-shadow 0.2s ease;
+  }
+
+  .profile-pill:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  }
+
+  .profile-pill::after {
+    display: none; /* Hides default Bootstrap dropdown caret */
+  }
+
+  .profile-pill .fa-bars {
+    font-size: 0.95rem;
+  }
+
+  .profile-pill .fa-circle-user {
+    font-size: 1.85rem;
+    color: #717171;
+  }
+
+  .profile-dropdown-menu {
+    border: 1px solid #ebebeb;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    padding: 0.5rem 0;
+    min-width: 190px;
+    margin-top: 10px !important;
+  }
+
+  .profile-dropdown-menu .dropdown-item {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.92rem;
+    color: #222222;
+  }
+
+  .profile-dropdown-menu .dropdown-item:hover {
+    background-color: #f7f7f7;
+  }
+
+  /* Mobile Adjustments */
+  @media (max-width: 767.98px) {
+    .custom-navbar {
+      padding: 0.75rem 1rem;
+    }
+
+    .search-pill {
+      margin: 1rem 0;
+      max-width: 100%;
+    }
+
+    .search-divider,
+    .search-field-btn {
+      display: none;
+    }
   }
 </style>
 
-
-<nav class="navbar navbar-expand-md bg-body-tertiary border-bottom sticky-top">
+<nav class="navbar navbar-expand-md custom-navbar sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- Brand -->
+    <a class="brand-wrapper" href="/listings">
+      <i class="fa-regular fa-compass"></i>
+      <span>Explore</span>
+    </a>
+
+    <!-- Mobile Toggler -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        
-        <a class="nav-link" href="/listings">Explore</a>
-        
-    
-      </div>
-      <div class="navbar-nav ms-auto">
-         <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search destinations" aria-label="Search"/>
-      <button class="btn btn-search" type="submit">Search</button>
-    </form>
-      </div>
 
-      <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="/listings/new">Add your home</a>
-        <% if(!currUser) { %>
-        <a class="nav-link active" aria-current="page" href="/signup"><b>Sign up</b></a>
-        <a class="nav-link" href="/login"><b>Log in</b></a>
-        <% } %> <% if(currUser) { %>
-        <a class="nav-link" href="/logout"><b>Log out</b></a>
-       <% } %>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <!-- Centered Pill Search Bar -->
+      <form class="search-pill mx-auto" role="search" action="/listings" method="GET">
+        <div class="search-section search-section-where">
+          <label for="search-destination" class="search-label">Where</label>
+          <input
+            id="search-destination"
+            name="q"
+            class="search-input"
+            type="search"
+            placeholder="Search destinations"
+            aria-label="Search destinations"
+          />
+        </div>
+
+        <span class="search-divider"></span>
+        <button type="button" class="search-field-btn">Check in/out</button>
+
+        <span class="search-divider"></span>
+        <button type="button" class="search-field-btn">Guest</button>
+
+        <button class="btn-search-circle" type="submit" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+
+      <!-- Right Navigation & User Menu -->
+      <div class="navbar-nav align-items-md-center gap-2">
+        <a class="nav-link host-link" href="/listings/new">Add your home</a>
+
+        <button class="globe-btn d-none d-md-flex" type="button" aria-label="Language">
+          <i class="fa-solid fa-globe"></i>
+        </button>
+
+        <!-- Profile Dropdown -->
+        <div class="dropdown">
+          <button
+            class="profile-pill dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            aria-label="Account menu"
+          >
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-circle-user"></i>
+          </button>
+
+          <ul class="dropdown-menu dropdown-menu-end profile-dropdown-menu">
+            <% if(!currUser) { %>
+              <li><a class="dropdown-item fw-semibold" href="/signup">Sign up</a></li>
+              <li><a class="dropdown-item" href="/login">Log in</a></li>
+            <% } %>
+            <% if(currUser) { %>
+              <li><a class="dropdown-item fw-semibold" href="/logout">Log out</a></li>
+            <% } %>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
